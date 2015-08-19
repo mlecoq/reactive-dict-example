@@ -1,24 +1,25 @@
 if (Meteor.isClient) {
   // counter starts at 0
-  var counter =-1;
 
-  var count = new Deps.Dependency();
+
+  var counterDict = new ReactiveDict();
+  counterDict.set("counter", 0)
 
   Template.hello.helpers({
     counter: function () {
-      count.depend()
-      counter += 1;
-      return  counter;
+      var count = counterDict.get("counter");
+      return count;
     }
   });
 
   Template.hello.events({
     'click button': function () {
       // increment the counter when button is clicked
-      count.changed();
+      counterDict.set("counter", counterDict.get("counter") + 1)
     }
   });
 }
+
 
 if (Meteor.isServer) {
   Meteor.startup(function () {

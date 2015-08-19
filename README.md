@@ -1,4 +1,4 @@
-Deps Dependency Example
+Reactive Dic Example
 ===================
 
-Version using **deps dependency** of generated code by meter create.
+Version using **reactive dict** of generated code by _meteor create_.
